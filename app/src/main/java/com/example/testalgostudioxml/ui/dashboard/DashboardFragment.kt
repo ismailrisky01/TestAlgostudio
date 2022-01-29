@@ -30,21 +30,21 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getData()
+        binding.IDDashboardSwipe.setOnRefreshListener {
+            getData()
+            binding.IDDashboardSwipe.isRefreshing = false
+        }
+
+
+    }
+    fun getData(){
         mViewModel.getModelMim.observe(viewLifecycleOwner, Observer {
             val adapter = AdapterDashboard()
             binding.IDDashboardRecyclerview.layoutManager = GridLayoutManager(requireContext(), 3)
             binding.IDDashboardRecyclerview.adapter = adapter
             adapter.setData(it)
         })
-        val array = ArrayList<ModelMim>()
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-        array.add(ModelMim(0, "asas", "asas", 121, 121, 12))
-
-
     }
 
     override fun onDestroy() {

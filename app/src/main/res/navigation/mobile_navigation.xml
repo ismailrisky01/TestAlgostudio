@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/doneFragment"
-        android:name="com.example.testalgostudioxml.DoneFragment"
+        android:name="com.example.testalgostudioxml.ui.done.DoneFragment"
         android:label="fragment_done"
         tools:layout="@layout/fragment_done" />
 </navigation>

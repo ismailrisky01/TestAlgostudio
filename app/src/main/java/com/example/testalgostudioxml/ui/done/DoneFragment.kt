@@ -1,4 +1,4 @@
-package com.example.testalgostudioxml
+package com.example.testalgostudioxml.ui.done
 
 import android.content.ActivityNotFoundException
 import android.graphics.Bitmap
@@ -18,6 +18,7 @@ import com.example.testalgostudioxml.util.Util
 import android.content.Intent
 import android.widget.Toast
 import android.graphics.BitmapFactory
+import androidx.navigation.fragment.findNavController
 import java.io.File
 
 
@@ -39,6 +40,9 @@ class DoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val uriString = arguments?.getString("uriString")
         val uri = Uri.parse(uriString)
+        binding.IDDoneBtnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
         binding.IDDoneImageView.setImageURI(uri)
         binding.IDDoneBtnFB.setOnClickListener {
             fn_share(uri)
